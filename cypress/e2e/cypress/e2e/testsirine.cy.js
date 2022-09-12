@@ -22,6 +22,9 @@ describe('Home tests', ()=>{
 
   it('choose the first item', () => {
     //click on the first item  
-    cy.get(itemClassName).first().click();
+    cy.get(itemClassName).first().should('have.attr', 'href')
+    .then((href) => {
+      cy.visit(href)
+    });
   });  
 });
