@@ -6,7 +6,7 @@ const searchBarId = ('#search-key');
 const searchButtonId = ('#form-searchbar');
 const itemClassName = ('._3t7zg._2f4Ho');
 
-describe('Home tests', ()=>{
+describe('aliexpress tests', ()=>{
   it('open the home page', () => {
     //vist the site
     cy.visit(textLink);
@@ -17,7 +17,7 @@ describe('Home tests', ()=>{
     cy.get(searchBarId).type(objectName);
     //click to search
     cy.get(searchButtonId).submit();
-    cy.contains('Accepter les cookies').click();
+   
   }); 
 
   it('choose the first item', () => {
@@ -26,5 +26,13 @@ describe('Home tests', ()=>{
     .then((href) => {
       cy.visit(href)
     });
+    cy.contains('Accepter les cookies').click();
+    
   });  
+  
+  it('Add to cart', () =>{
+    cy.contains('Ajouter au panier').click();
+    
+  });
+
 });
